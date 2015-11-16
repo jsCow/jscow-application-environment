@@ -1,0 +1,37 @@
+{
+  "name": "jscow-application-environment",
+  "description": "jsCow - Application Environment - Javascript Component Framework",
+  "version": "1.0.0",
+  "license": "GPL-3.0+",
+  "readme": "README.md",
+  "author": "Mario Linz <jscow@gmx.de>",
+  "contributors": [
+    {
+      "name": "Mario Linz",
+      "email": "jscow@gmx.de"
+    }
+  ],
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-compress": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-yuidoc": "latest",
+    "grunt-contrib-jshint": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "jscow": "latest",
+    "jscow-theme": "latest",
+    "jscow-button": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsCow/jscow-application-environment.git"
+  }
+}
