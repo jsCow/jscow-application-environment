@@ -3,76 +3,68 @@ module.exports = function(grunt) {
 		
 		pkg: grunt.file.readJSON('package.json'),
 
-		taget: 'dist/',
-		theme: 'node_modules/jscow-theme/src/less/theme.less',
-		
-		// Permission problem try to exec command "npm cache clean"
-		watch: {
-            less: {
-                files: [
-					'src/less//{,*/}*.less',
-					'/{,*/}*.js'
-				],
-                tasks: [
-					'clean',
-					'less',
-					'concat',
-					'uglify'
-					/*,
-					'yuidoc'*/
-				]
-            }
-        },
-		
 		clean: {
 			clean: [
 				"dist"
 			]
 		},
-		
-		less: {
-			production: {
-				options: {
-					//relativeUrls: true,
-					paths: ["src/less"],
-					cleancss: true,
-					modifyVars: {
-						//imgPath: '"http://"'
-					}
-				},
-				files: {
-					"<%= target %>/css/theme-min.css": "<%= theme %>"
-				}
-			}
-		},
-		
+
 		copy: {
 			main: {
 				files: [
 					{
-						expand: true, 
-						cwd: 'src/jscow/components', 
-						src: '**/*.js',
-						dest: 'dist/jscow/components'
+	                    expand: true,
+	                    cwd: 'node_modules/jquery/dist',
+	                    src: ['jquery.min.js'],
+	                    dest: 'dist/js/jquery'
 					},
 					{
 	                    expand: true,
-	                    //dot: true,
+	                    cwd: 'node_modules/bootstrap/less',
+	                    src: ['**'],
+	                    dest: 'dist/css/less/bootstrap'
+					},
+					{
+	                    expand: true,
+	                    cwd: 'node_modules/font-awesome/less',
+	                    src: ['**'],
+	                    dest: 'dist/css/less/font-awesome'
+					},
+					{
+	                    expand: true,
 	                    cwd: 'node_modules/font-awesome',
-	                    src: ['fonts/*.*'],
+	                    src: ['fonts/**'],
 	                    dest: 'dist'
 					},
-					{
-	                    expand: true,
-	                    //dot: true,
-	                    cwd: 'src/less',
-	                    src: ['**'],
-	                    dest: 'dist/css/less'
-					}
+					grunt.file.expand(['node_modules/jscow-*/src/less']).map(function(cwd) {
+			            return [
+			            	{
+			                	expand: true,
+			                	cwd: cwd,
+			                	src: ["**"],
+			                	dest: "dist/css/less"
+			            	}
+			            ];
+			        })
 				]
 			}
 		},
-		
+
+		less: {
+			production: {
+				options: {
+					cleancss: true,
+					//relativeUrls: true,
+					sourceMap: true,
+                    sourceMapFilename: "theme-min.css.map",
+                    sourceMapBasepath: "dist/css"
+				},
+				files: {
+					"dist/css/theme-min.css": ["dist/css/less/theme.less"]
+				}
+			}
+		},
+
 		uglify: {
 			options: {
 				mangle: {
@@ -85,13 +77,7 @@ module.exports = function(grunt) {
 				},
 				files: [
 					{
-						expand: true,
-						cwd: 'src/jscow/components',
-						src: '**/*.js',
-						dest: 'dist/jscow/components'
-					},
-					{
-						'dist/jscow/jscow.min.js': ['dist/jscow/jscow.min.js']
+						'dist/js/app/app.min.js': ['src/app/app.js']
 					}
 				]
 			}
@@ -103,13 +89,10 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'src/jscow/jscow.js', 
-					'src/jscow/jscow.components.js', 
-					'src/jscow/jscow.components.view.js', 
-					'src/jscow/jscow.components.controller.js', 
-					'src/jscow/jscow.events.js'
+					'node_modules/jscow/dist/jscow/jscow.min.js',
+					'node_modules/jscow-*/dist/jscow/components/*.min.js'
 				],
-				dest: 'dist/jscow/jscow.min.js'
+				dest: 'dist/js/jscow/jscow.min.js'
 			}
 		},
 		
@@ -125,22 +108,12 @@ module.exports = function(grunt) {
 					jQuery: true
 				}
 			},
-			all: ['src/jscow/**/*.js']
-		},
-
-		yuidoc: {
-			compile: {
-				name: '<%= pkg.name %>',
-				description: '<%= pkg.description %>',
-				version: '<%= pkg.version %>',
-				url: '<%= pkg.homepage %>',
-				options: {
-					paths: 'src/jscow/',
-					outdir: 'dist/docs/'
-				}
-			}
+			all: [
+				'src/app/*.js',
+				'dist/js/**/*.js'
+			]
 		}
-		
+
 	});
 	
 	grunt.loadNpmTasks('grunt-contrib-clean');
@@ -149,18 +122,16 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-yuidoc');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	
 	// Default task(s).
 	grunt.registerTask('default', [
-		//'jshint',
 		'clean',
+		'jshint',
+		'copy',
+		'concat',
 		'less',
-		//'concat',
-		//'copy',
-		//'uglify',
-		//'yuidoc'
+		'uglify'
 	]);
 
 };

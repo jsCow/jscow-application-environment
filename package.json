@@ -11,6 +11,10 @@
       "email": "jscow@gmx.de"
     }
   ],
+  "dependencies": {
+    "jscow": "latest",
+    "jscow-theme": "latest"
+  },
   "devDependencies": {
     "grunt": "latest",
     "grunt-cli": "latest",

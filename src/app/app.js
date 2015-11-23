@@ -9,6 +9,8 @@ $(function(){
 			direction: 'l'
 		}
 	});
+
+	btn1.run();
 	
 
 	/*

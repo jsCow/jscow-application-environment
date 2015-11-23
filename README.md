@@ -23,8 +23,9 @@ grunt
 * [jscow](https://github.com/jsCow/jsCow) The core of the jsCow Component Frmework
 
 // For example you can install all available jscow components optional like this
-* [jscow-buton](https://github.com/jsCow/jscow-button) For a button component of the jsCow Component Frmework
-
+* [jscow-button](https://github.com/jsCow/jscow-button) For a button component of the jsCow Component Frmework
+* ...
+* ...
 
 The following grun packages will be automatically installed with 'npm install'
 * grunt
