@@ -3,11 +3,7 @@ $(function(){
 	console.time('all');
 	
 	var btn1 = jsCow.get(jsCow.res.components.button, { 
-		text: 'Button', 
-		icon: {
-			name: 'user',
-			direction: 'l'
-		}
+		text: 'Getting started with a button'
 	});
 
 	btn1.run();

@@ -10,7 +10,7 @@
 @import "components/customized-bootstrap/bootstrap-less-modules";
 
 // >>> Font Awesome <<<
-@import "../../font-awesome/font-awesome";
+@import "font-awesome/font-awesome";
 
 @import "mixins";				// OWN SPECIFIC MIXINS
 @import "variables";			// OWN SPECIFIC THEME VARIABLES
@@ -19,6 +19,19 @@
 // INCLUDE ALL NEEDED THEME COMPONENTS
 @import "components/jscow/general";
 
+@import "components/jscow/button";
+// @import "components/jscow/toolbar";
+// @import "components/jscow/panel";
+// @import "components/jscow/fieldset";
+// @import "components/jscow/textfield";
+// @import "components/jscow/checkbox";
+// @import "components/jscow/radio";
+// @import "components/jscow/window";
+// @import "components/jscow/splitter";
+// @import "components/jscow/label";
+// @import "components/jscow/splitter";
+// @import "components/jscow/flex";
+
 
 //
 // GLOBAL STANDARD BASE STYLES
@@ -26,7 +39,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: darken(@text-color, 0%);
-	background: darken(@base-color, @color-offset-default);
+	background: darken(@base-color, @color-offset-default*3);
 	
 	@media (min-width: @screen-md-min) {
 		&-img {
