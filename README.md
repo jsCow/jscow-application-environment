@@ -40,8 +40,6 @@ All packages will be installed with command **'npm install'**.
 * [bootstrap](https://www.npmjs.com/package/bootstrap) - The most popular front-end framework for developing responsive, mobile first projects on the web
 * [font-awesome](https://www.npmjs.com/package/font-awesome) - The iconic font and CSS framework
 * [jquery](JavaScript library for DOM operations) - JavaScript library for DOM operations
-* [grunt](https://www.npmjs.com/package/grunt) The JavaScript Task Runner - node package for development
-* [grunt-cli](https://www.npmjs.com/package/grunt-cli) Grunt command line interface - node package for development
 * [jscow](http://www.jscow.de) - **jsCow** - Javascript Component Framework
 * [jscow-theme](https://github.com/jsCow/jscow-theme) - The theming environment for  **jsCow** - Javascript Component Framework
 
