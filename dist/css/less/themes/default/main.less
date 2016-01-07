@@ -17,20 +17,22 @@
 
 
 // INCLUDE ALL NEEDED THEME COMPONENTS
-@import "components/jscow/general";
+@import (optional) "components/jscow/general";
 
-@import "components/jscow/button";
-// @import "components/jscow/toolbar";
-// @import "components/jscow/panel";
-// @import "components/jscow/fieldset";
-// @import "components/jscow/textfield";
-// @import "components/jscow/checkbox";
-// @import "components/jscow/radio";
-// @import "components/jscow/window";
-// @import "components/jscow/splitter";
-// @import "components/jscow/label";
-// @import "components/jscow/splitter";
-// @import "components/jscow/flex";
+@import (optional) "components/jscow/button";
+@import (optional) "components/jscow/buttongroup";
+@import (optional) "components/jscow/panel";
+@import (optional) "components/jscow/group";
+@import (optional) "components/jscow/toolbar";
+@import (optional) "components/jscow/fieldset";
+@import (optional) "components/jscow/textfield";
+@import (optional) "components/jscow/checkbox";
+@import (optional) "components/jscow/radio";
+@import (optional) "components/jscow/window";
+@import (optional) "components/jscow/splitter";
+@import (optional) "components/jscow/label";
+@import (optional) "components/jscow/splitter";
+@import (optional) "components/jscow/flex";
 
 
 //
@@ -39,7 +41,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	color: darken(@text-color, 0%);
-	background: darken(@base-color, @color-offset-default*3);
+	background: darken(@base-color, @color-offset-default);
 	
 	@media (min-width: @screen-md-min) {
 		&-img {
